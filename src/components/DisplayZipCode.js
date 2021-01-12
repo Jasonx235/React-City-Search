@@ -5,7 +5,7 @@ class DisplayZipCode extends Component{
         
         return(
             <div className="zip">
-                <li>{this.props.cityData}</li>
+                <li>Zip code: {this.props.cityData}</li>
             </div>
         )
 

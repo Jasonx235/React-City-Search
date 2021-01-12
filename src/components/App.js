@@ -11,6 +11,8 @@ class App extends React.Component {
     this.state = {
         cityData: []
     }
+
+    
   }
 
   findCityData = (name) =>{
@@ -18,9 +20,11 @@ class App extends React.Component {
     axios.get(`http://ctp-zip-api.herokuapp.com/city/${name}`)
     .then(res => { this.setState({cityData: res.data})
        console.log(this.state.cityData);
+       document.getElementById("error").style.display = "none";
     })
-    .catch(err => console.log("No City found"));
+    .catch(err => document.getElementById("error").style.display = "block");
   }
+
   render() {
   return (
     <div className="App">
@@ -28,6 +32,7 @@ class App extends React.Component {
         <h1>City Search</h1>
         <p>Enter a city to view all the zip code!</p>
         <Search findCityData={this.findCityData}/>
+        <p id="error">City Not Found!</p>
         <div className="zipContainer">
         <CityDisplay cityData={this.state.cityData}/>
         </div>
