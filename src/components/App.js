@@ -17,7 +17,7 @@ class App extends React.Component {
 
   findCityData = (name) =>{
     //console.log(name);
-    axios.get(`http://ctp-zip-api.herokuapp.com/city/${name}`)
+    axios.get(`https://ctp-zip-api.herokuapp.com/city/${name}`)
     .then(res => { this.setState({cityData: res.data})
       this.goodRes();
     })
