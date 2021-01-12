@@ -47,7 +47,7 @@ class App extends React.Component {
       <div className="container"> 
       <img src="icons8-city-80-white.png" alt="City icon"/>
         <h1>City Search</h1>
-        <p>Enter a city to view all the zip code!</p>
+        <p>Enter a city to view all the zip code(s)!</p>
         <Search findCityData={this.findCityData}/>
         <p id="error">City Not Found!</p>
         <div className="zipContainer">
