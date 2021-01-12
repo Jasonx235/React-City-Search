@@ -1,5 +1,5 @@
 # ReactJS City Search
-## This project is part of Tech Talent Pipeline Full-Satck web-development bootcamp.
+## This project is part of Tech Talent Pipeline Full-Stack web-development bootcamp.
 Using Axios to fetch zip codes from http://ctp-zip-api.herokuapp.com/city/:cityname
 
 ### View Project
