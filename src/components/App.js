@@ -16,19 +16,36 @@ class App extends React.Component {
   }
 
   findCityData = (name) =>{
-    console.log(name);
+    //console.log(name);
     axios.get(`http://ctp-zip-api.herokuapp.com/city/${name}`)
     .then(res => { this.setState({cityData: res.data})
-       console.log(this.state.cityData);
-       document.getElementById("error").style.display = "none";
+      this.goodRes();
     })
-    .catch(err => document.getElementById("error").style.display = "block");
+    .catch(err => {this.setState({cityData: []});
+      this.badRes()
+  })
   }
+
+
+
+
+  goodRes= () =>{
+    console.log(this.state.cityData);
+    document.getElementById("error").style.display = "none";
+  }
+
+  badRes = () =>{
+    document.getElementById("error").style.display = "block";
+    setTimeout(this.goodRes, 2000);
+  }
+  
+ 
 
   render() {
   return (
     <div className="App">
       <div className="container"> 
+      <img src="icons8-city-80-white.png" alt="City icon"/>
         <h1>City Search</h1>
         <p>Enter a city to view all the zip code!</p>
         <Search findCityData={this.findCityData}/>
